@@ -14,7 +14,8 @@ import { StudentService } from './student.service';
 export class StudentsComponent implements OnInit {
   students: Student[] = [];
 
-  displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth', 'email', 'mobile', 'gender',];
+  displayedColumns: string[] =
+  ['firstName', 'lastName', 'dateOfBirth', 'email', 'mobile', 'gender','edit'];
 
   dataSource: MatTableDataSource<Student> =new MatTableDataSource<Student>();
 
@@ -27,7 +28,7 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit(): void {
     //Fetch Students
-    this.studentService.getStudent()
+    this.studentService.getStudents()
     .subscribe(
       (successResponse) => {
         this.students = successResponse;
